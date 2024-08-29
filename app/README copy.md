@@ -1,15 +1,13 @@
-# Manual de Manejo de la Aplicación Dash con Bootstrap
+# Manual de Manejo del Dashboard en Python con Bootstrap
 
-## Introducción
+## Página de Inicio
 
-Este manual proporciona una guía detallada para utilizar la aplicación Dash desarrollada con Bootstrap. Aquí encontrarás instrucciones sobre cómo navegar por la interfaz, entender los controles, y cómo interpretar los resultados.
+La página principal muestra un resumen general del estado de los datos.
 
-## Instalación
+![Página de Inicio](assets/image1.png)
 
-Antes de comenzar, asegúrate de tener todas las dependencias instaladas. Puedes instalar la aplicación y sus dependencias con los siguientes pasos:
+## Configuración
 
-```bash
-git clone https://github.com/usuario/repositorio.git
-cd repositorio
-pip install -r requirements.txt
+La sección de configuración te permite ajustar parámetros del dashboard, como los rangos de fechas y opciones de filtrado.
 
+![Configuración](assets/image2.png)
