@@ -1,13 +1,13 @@
-name: Run Python code
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Run script
-        run: python script.py
+# Manual de Manejo del Dashboard en Python con Bootstrap
+
+## Página de Inicio
+
+La página principal muestra un resumen general del estado de los datos.
+
+![Página de Inicio](/assetsMD/image1.png)
+
+## Configuración
+
+La sección de configuración te permite ajustar parámetros del dashboard, como los rangos de fechas y opciones de filtrado.
+
+![Configuración](/assetsMD/image2.png)
