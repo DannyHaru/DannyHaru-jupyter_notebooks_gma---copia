@@ -1,14 +1,15 @@
-# Proyecto de Ejemplo
+# Manual de Manejo de la Aplicación Dash con Bootstrap
 
-## Descripción
+## Introducción
 
-Este es un proyecto de ejemplo para demostrar cómo se puede documentar un código usando Markdown en un archivo `README.md`. Incluye ejemplos de cómo ejecutar el código y cómo mostrar los resultados visualmente.
+Este manual proporciona una guía detallada para utilizar la aplicación Dash desarrollada con Bootstrap. Aquí encontrarás instrucciones sobre cómo navegar por la interfaz, entender los controles, y cómo interpretar los resultados.
 
 ## Instalación
 
-Para instalar las dependencias necesarias, clona el repositorio y ejecuta el siguiente comando:
+Antes de comenzar, asegúrate de tener todas las dependencias instaladas. Puedes instalar la aplicación y sus dependencias con los siguientes pasos:
 
 ```bash
 git clone https://github.com/usuario/repositorio.git
 cd repositorio
 pip install -r requirements.txt
+
