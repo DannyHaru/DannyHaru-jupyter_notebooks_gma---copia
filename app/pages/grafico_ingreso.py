@@ -44,7 +44,7 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Label("Código de Ítem"),
             dcc.Dropdown(
-                id='codigo-item-dropdown',
+                id='codigo-item-dropdown1',
                 options=codigo_item_options,
                 placeholder='Selecciona un código de ítem',
                 style={'margin-bottom': '10px'}
@@ -53,7 +53,7 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Label("Descripción"),
             dcc.Dropdown(
-                id='descripcion-dropdown',
+                id='descripcion-dropdown1',
                 options=descripcion_options,
                 placeholder='Selecciona una descripción',
                 style={'margin-bottom': '10px'}
@@ -62,7 +62,7 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Label("Año"),
             dcc.Dropdown(
-                id='anio-dropdown',
+                id='anio-dropdown1',
                 options=anio_options,
                 placeholder='Selecciona un año',
                 style={'margin-bottom': '10px'}
@@ -71,7 +71,7 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Label("Tipo de Gráfico"),
             dcc.Dropdown(
-                id='tipo-grafico-dropdown',
+                id='tipo-grafico-dropdown1',
                 options=[
                     {'label': 'Gráfico de Barras Apiladas', 'value': 'barras_apiladas'},
                     {'label': 'Gráfico de Columnas Apiladas', 'value': 'columnas_apiladas'},
@@ -91,7 +91,7 @@ layout = dbc.Container([
     dbc.Row([
         dbc.Col([
             dcc.Graph(
-                id='descripcion-imagen', 
+                id='descripcion-imagen1', 
                 config={'displayModeBar': False},
                 style={'display': 'flex', 'justify-content': 'center',  'align-items': 'center',  'height': '20vh'}
             ),
@@ -104,16 +104,16 @@ layout = dbc.Container([
     ]),
     dbc.Row([
         dbc.Col([
-            html.P(id='suma-cantidad-label', style={'font-weight': 'bold'}),
-            html.P(id='precio-unitario-maximo-label', style={'font-weight': 'bold'})
+            html.P(id='suma-cantidad-label1', style={'font-weight': 'bold'}),
+            html.P(id='precio-unitario-maximo-label1', style={'font-weight': 'bold'})
         ], width=5),
         dbc.Col([
-            html.Button('Exportar a PDF', id='export-pdf-button', n_clicks=0)
+            html.Button('Exportar a PDF', id='export-pdf-button1', n_clicks=0)
         ]),
         dbc.Col([
             dbc.Label("Rango de Fechas"),
             dcc.DatePickerRange(
-                id='date-picker-range2',
+                id='date-picker-range1',
                 min_date_allowed=df['fecha_ingreso'].min().date(),
                 max_date_allowed=df['fecha_ingreso'].max().date(),
                 start_date=df['fecha_ingreso'].min().date(),
@@ -122,7 +122,7 @@ layout = dbc.Container([
                 style={'margin-bottom': '10px'}
             ),
         ], width=5),
-        dcc.Download(id='download-pdff')    
+        dcc.Download(id='download-pdf1')    
     ]),
 ], fluid=True)
 
@@ -133,16 +133,16 @@ fig = px.line(df, x='fecha_ingreso', y='cantidad', title='Cantidad por fecha de 
 @callback(
     [
         Output('line-chart1', 'figure'),
-        Output('suma-cantidad-label', 'children'),
-        Output('precio-unitario-maximo-label', 'children')
+        Output('suma-cantidad-label1', 'children'),
+        Output('precio-unitario-maximo-label1', 'children')
     ],
     [
-        Input('codigo-item-dropdown', 'value'),
-        Input('descripcion-dropdown', 'value'),
-        Input('date-picker-range2', 'start_date'),
-        Input('date-picker-range2', 'end_date'),
-        Input('anio-dropdown', 'value'),
-        Input('tipo-grafico-dropdown', 'value')  # Nuevo input para el tipo de gráfico
+        Input('codigo-item-dropdown1', 'value'),
+        Input('descripcion-dropdown1', 'value'),
+        Input('date-picker-range1', 'start_date'),
+        Input('date-picker-range1', 'end_date'),
+        Input('anio-dropdown1', 'value'),
+        Input('tipo-grafico-dropdown1', 'value')  # Nuevo input para el tipo de gráfico
     ]
 )
 def update_graph(codigo_item, descripcion, start_date, end_date, anio, tipo_grafico):
@@ -201,9 +201,9 @@ def update_graph(codigo_item, descripcion, start_date, end_date, anio, tipo_graf
 
 # Callback para generar la imagen con el texto
 @callback(
-    Output('descripcion-imagen', 'figure'),
-    [Input('codigo-item-dropdown', 'value'),
-     Input('descripcion-dropdown', 'value')]
+    Output('descripcion-imagen1', 'figure'),
+    [Input('codigo-item-dropdown1', 'value'),
+     Input('descripcion-dropdown1', 'value')]
 )
 def generate_image(codigo_item, descripcion):
     # Inicializar el DataFrame filtrado
@@ -253,9 +253,9 @@ def generate_image(codigo_item, descripcion):
     return fig
 
 @callback(
-    Output('download-pdf', 'data'),
-    [Input('export-pdf-button', 'n_clicks')],
-    [State('line-chart2', 'figure')]
+    Output('download-pdf1', 'data'),
+    [Input('export-pdf-button1', 'n_clicks')],
+    [State('line-chart1', 'figure')]
 )
 def export_to_pdf(n_clicks, fig):
     if n_clicks > 0:

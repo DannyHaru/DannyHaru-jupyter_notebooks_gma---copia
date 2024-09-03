@@ -6,7 +6,6 @@ from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 import io
 import plotly.io as pio
-import os
 from dotenv import load_dotenv
 import plotly.graph_objects as go
 
