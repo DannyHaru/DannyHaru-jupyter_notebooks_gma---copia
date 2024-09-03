@@ -1,6 +1,6 @@
 from dash import Dash, dcc, html, Input, Output, State
 import dash_bootstrap_components as dbc
-from pages import grafico_ingreso, grafico_salida, partidas
+from pages import dashboard, linearoja, partidas, grafico_ingreso, grafico_salida
 
 # Crear instancia de la aplicación Dash y agregar hoja de estilo CSS
 external_stylesheets = ["https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/morph/bootstrap.min.css"]
@@ -19,6 +19,8 @@ sidebar = dbc.Offcanvas(
         html.Hr(),
         dbc.Nav(
             [
+                dbc.NavLink("Dashboard OTs", href="/dashboard", active="exact"),
+                dbc.NavLink("Indicadores", href="/linearoja", active="exact"),
                 dbc.NavLink("Gráfico de Ingresos", href="/grafico_ingreso", active="exact"),
                 dbc.NavLink("Gráfico de Salidas", href="/grafico_salida", active="exact"),
                 dbc.NavLink("Partidas presupuestarias", href="/partidas", active="exact"),
@@ -102,9 +104,13 @@ def toggle_offcanvas(n_clicks, is_open):
 def display_page(pathname):
     if pathname == '/' or pathname == '':
         return main_image  # Mostrar la imagen principal cuando no se selecciona ninguna opción
+    elif pathname == '/dashboard':
+        return dashboard.layout
+    elif pathname == '/linearoja':
+        return linearoja.layout
     elif pathname == '/grafico_ingreso':
         return grafico_ingreso.layout
-    elif pathname == '/grafico_salida': 
+    elif pathname == '/grafico_salida':
         return grafico_salida.layout
     elif pathname == '/partidas': 
         return partidas.layout
